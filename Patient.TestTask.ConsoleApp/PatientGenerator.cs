@@ -64,7 +64,7 @@ public static class PatientGenerator
             {
                 Gender = _genders[_random.Next(0, 4)],
                 Active = _activate[_random.Next(0, 2)],
-                BirthDate = new DateTime(_random.Next(2000, 2000), _random.Next(1, 13), _random.Next(1, 28)),
+                BirthDate = new DateTime(_random.Next(2000, 2024), _random.Next(1, 13), _random.Next(1, 28)),
                 Name = new NameModel()
                 {
                     Family = _surnames[_random.Next(0, _surnames.Count)],

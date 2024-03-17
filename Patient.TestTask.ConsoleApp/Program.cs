@@ -16,6 +16,8 @@ async Task InsertManyPatientsIntoDb(List<PatientModel> patients)
    var response = await httpClient.PostAsJsonAsync("http://patient.testtask.rest.api:80/Patient/CreateMany", createManyPatientsModel);
 }
 
+await Task.Delay(5000);
+
 var patients = PatientGenerator.Generate();
 await InsertManyPatientsIntoDb(patients);
 Console.WriteLine("Рожденные дети созданны успешно.");

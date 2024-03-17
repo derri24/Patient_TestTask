@@ -1,0 +1,401 @@
+{
+	"info": {
+		"_postman_id": "6ab7015f-efcc-4314-b3e9-d76a23b60b28",
+		"name": "test-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32295773"
+	},
+	"item": [
+		{
+			"name": "get by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/GetPatientById?id=408c64b7-35e6-465e-9728-b96a158c6740",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"GetPatientById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "408c64b7-35e6-465e-9728-b96a158c6740"
+						},
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": {\n    \"use\": \"official\",\n    \"family\": \"Иванов\",\n    \"given\": [\n      \"Иван\",\n      \"Иванович\"\n    ]\n  },\n  \"gender\": \"female\",\n  \"birthDate\": \"2024-03-17T20:37:08.381Z\",\n  \"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/Patient/Create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create many",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"patients\": [\n    {\n      \"name\": {\n        \"use\": \"official\",\n        \"family\": \"Кричко\",\n        \"given\": [\n          \"Анастасия\",\n          \"Александровна\"\n        ]\n      },\n      \"gender\": \"female\",\n      \"birthDate\": \"2004-09-15T20:46:24.313Z\",\n      \"active\": true\n    },\n    {\n      \"name\": {\n        \"use\": \"official\",\n        \"family\": \"Никитина\",\n        \"given\": [\n          \"Дарья\",\n          \"Владиславовна\"\n        ]\n      },\n      \"gender\": \"female\",\n      \"birthDate\": \"2003-04-01T20:46:24.313Z\",\n      \"active\": true\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/Patient/CreateMany",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"CreateMany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": {\n    \"id\": \"0b46975d-0ce9-4534-bd14-587665f26916\",\n    \"use\": \"official\",\n    \"family\": \"Иванов\",\n    \"given\": [\n      \"Андрей\",\n      \"Сергеевич\"\n    ]\n  },\n  \"gender\": \"male\",\n  \"birthDate\": \"2024-03-17T20:37:08.381Z\",\n  \"active\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/Patient/Update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/Patient/Delete?id=39f468f5-6bfa-4af5-8a04-494ae3752d0d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "39f468f5-6bfa-4af5-8a04-494ae3752d0d"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-eq",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/Search?dates=eq2000-01-05",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "dates",
+							"value": "eq2000-01-05"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-ne",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/Search?dates=ne2000-12-27&dates=ne2000-10-21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "dates",
+							"value": "ne2000-12-27"
+						},
+						{
+							"key": "dates",
+							"value": "ne2000-10-21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-gt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/Search?dates=gt2022-12-27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "dates",
+							"value": "gt2022-12-27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-lt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/Search?dates=lt2001-12-27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "dates",
+							"value": "lt2001-12-27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-ge",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/Search?dates=ge2021-10-20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "dates",
+							"value": "ge2021-10-20"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-le",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/Search?dates=le2003-12-08",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "dates",
+							"value": "le2003-12-08"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-sa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/Search?dates=sa2023-01-09",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "dates",
+							"value": "sa2023-01-09"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-eb",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/Search?dates=gt2006-11-26",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "dates",
+							"value": "gt2006-11-26"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search-ap",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/Patient/Search?dates=ap2000-11-22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"Patient",
+						"Search"
+					],
+					"query": [
+						{
+							"key": "dates",
+							"value": "ap2000-11-22"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -30,7 +30,7 @@ public class BaseRepository<TDocument> : IBaseRepository<TDocument> where TDocum
         if (!filters.Any())
             return new List<TDocument>();
         
-        return (await _collection.FindAsync(FilterDefinitionBuilder.Or(filters))).ToEnumerable();
+        return (await _collection.FindAsync(FilterDefinitionBuilder.And(filters))).ToEnumerable();
     }
     public virtual async Task<TDocument> FindOneAsync(Expression<Func<TDocument, bool>> filterExpression)
     {
