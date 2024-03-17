@@ -50,11 +50,11 @@ public class PatientService : IPatientService
                 {
                     var newDateTime = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, 0, 0, 0,
                         DateTimeKind.Utc);
-                    var afterDayDateTime1 = newDateTime.AddDays(1);
-                    var beforeDayDateTime1 = newDateTime.AddDays(-1);
+                    var afterDayDateTime = newDateTime.AddDays(1);
+                    var beforeDayDateTime = newDateTime.AddDays(-1);
                     filters.Add(filterBuilder.Or(
-                        filterBuilder.Lte(x => x.BirthDate, beforeDayDateTime1),
-                        filterBuilder.Gte(x => x.BirthDate, afterDayDateTime1)
+                        filterBuilder.Lte(x => x.BirthDate, beforeDayDateTime),
+                        filterBuilder.Gte(x => x.BirthDate, afterDayDateTime)
                     ));
                     break;
                 }
