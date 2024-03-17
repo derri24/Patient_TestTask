@@ -1,0 +1,33 @@
+﻿services:
+  mongodb:
+    image: mongo
+    ports:
+      - '3001:27017'
+    networks:
+      - node-network
+    
+  patient.testtask.rest.api:
+    image: patient.testtask.rest.api
+    build:
+      context: .
+      dockerfile: Patient.TestTask.RestApi/Dockerfile
+    ports:
+      - '3000:80'
+    networks:
+      - node-network
+    depends_on: 
+      - mongodb
+      
+  patient.testtask.consoleapp:
+    image: patient.testtask.consoleapp
+    build:
+      context: .
+      dockerfile: Patient.TestTask.ConsoleApp/Dockerfile
+    networks:
+      - node-network
+    depends_on:
+      - patient.testtask.rest.api
+  
+networks:
+  node-network:
+    driver: bridge
